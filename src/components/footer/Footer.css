@@ -1,0 +1,46 @@
+*{
+    box-sizing: content-box;
+}
+a{
+    text-decoration: none;
+}
+.footer{
+    display: flex;
+    background-color: #212529;
+    color: white;
+    padding: 3.8rem;
+}
+.facebook, .linkedIn, .whatsapp{
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    border: 2px solid #212529;
+    border-radius: 12px;
+
+}
+.facebook svg, .linkedIn svg, .whatsapp svg{
+    font-size: 1.5rem;
+    margin-right: 1rem !important;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+}
+.facebook:hover{
+    background-color: #334D87;
+    color: white;
+    border-radius: 10px; 
+}
+.linkedIn:hover{
+    background-color: #0077B5;
+    color: white;
+    border-radius: 10px; 
+}
+.whatsapp:hover{
+    background-color: #25D366;
+    color: white;
+    border-radius: 10px; 
+}
