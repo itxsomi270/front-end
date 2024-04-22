@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//renamed
 
 function Posts() {
   const [posts, setPosts] = useState([]);
