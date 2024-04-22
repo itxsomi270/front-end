@@ -2,19 +2,25 @@ import React, { useState } from 'react';
 //renamed
 
 function Posts() {
-  const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { id: Date.now(), content: newPost };
-    setPosts([...posts, post]);
+    fetch('http://localhost:5000/posts',{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(post)
+    }
+  ).then(()=>{
+    console.log('post added')
+  })
     setNewPost('');
-  };
+  }
 
   const handleChange = (e) => {
     setNewPost(e.target.value);
-  };
+  }
 
   return (
     <div className="container">
@@ -38,11 +44,6 @@ function Posts() {
       </div>
       <div className="mt-4">
         <h2>Posts</h2>
-        <p>
-          {posts.map((post) => (
-            <li key={post.id}>{post.content}</li>
-          ))}
-        </p>
       </div>
     </div>
   )
