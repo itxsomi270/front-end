@@ -1,0 +1,9 @@
+.card{
+    margin: 0px 20px;
+}
+.slick-next:before{
+    display: none;
+}
+.slick-next:after{
+    display: none;
+}

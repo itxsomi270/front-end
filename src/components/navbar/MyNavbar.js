@@ -3,7 +3,7 @@ import './MyNavbar.css';
 
 function MyNavbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 px-3">
+    <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 px-3 w-100">
       <div className="container-fluid">
         <Link className="navbar-brand px-3" to="/homepage">Usama</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
