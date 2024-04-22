@@ -41,7 +41,7 @@ function home() {
     slidesToScroll: 1
   }
   return (
-    <div className='container'>
+    <div className='container my-2'>
       <div className='row'>
       <Slider {...settings}>
       {
