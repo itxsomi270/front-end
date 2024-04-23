@@ -4,10 +4,12 @@ import './Posts.css'
 function Posts() {
   const [newPost, setNewPost] = useState('');
   const [posts, setPosts] = useState([]);
+  const [updatedContent, setUpdatedContent] = useState('');
+  const [editingPostId, setEditingPostId] = useState(null); // To track which post is currently being edited
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const post = { id: Date.now(), content: newPost };
+    const post = { content: newPost };
     fetch('http://localhost:5000/posts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,6 +39,38 @@ function Posts() {
     }
   }
 
+  const handleDelete = async (postId) => {
+    try {
+      await fetch(`http://localhost:5000/posts/${postId}`, {
+        method: 'DELETE',
+      });
+      console.log('post deleted');
+      // Refresh the posts after deleting one
+      fetchPosts();
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
+    }
+  };
+
+  const handleUpdate = async (postId, updatedContent) => {
+    try {
+      // Send PUT request to update the content
+      await fetch(`http://localhost:5000/posts/${postId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: updatedContent })
+      });
+      
+      console.log('Post updated');
+      // Refresh the posts after updating one
+      fetchPosts();
+      // Reset editingPostId after updating
+      setEditingPostId(null);
+    } catch (error) {
+      console.error('Error updating post:', error.message);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -65,9 +99,23 @@ function Posts() {
         <h2>Posts</h2>
         <ul>
           {posts.map(post => (
-            <p key={post.id} className='posts-area'>
-              {post.content}
-            </p>
+            <div key={post._id} className='posts-area'>
+              {editingPostId === post._id ? ( // If post is being edited
+                <>
+                  <textarea
+                    value={updatedContent}
+                    onChange={(e) => setUpdatedContent(e.target.value)}
+                  ></textarea>
+                  <button onClick={() => handleUpdate(post._id, updatedContent)}>Update</button>
+                </>
+              ) : (
+                <>
+                  <p>{post.content}</p>
+                  <button onClick={() => setEditingPostId(post._id)}>Edit</button>
+                  <button onClick={() => handleDelete(post._id)}>Delete</button>
+                </>
+              )}
+            </div>
           ))}
         </ul>
       </div>
