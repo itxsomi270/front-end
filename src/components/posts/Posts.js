@@ -7,6 +7,10 @@ function Posts() {
   const [updatedContent, setUpdatedContent] = useState('');
   const [editingPostId, setEditingPostId] = useState(null); // To track which post is currently being edited
 
+  const handleChange = (e) => {
+    setNewPost(e.target.value);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { content: newPost };
@@ -22,9 +26,6 @@ function Posts() {
     setNewPost('');
   }
 
-  const handleChange = (e) => {
-    setNewPost(e.target.value);
-  }
 
   const fetchPosts = async () => {
     try {
@@ -77,6 +78,7 @@ function Posts() {
 
   return (
     <div className="container">
+      {/* make a post area */}
       <h1>Posts Section</h1>
       <div className="posts-container">
         <form onSubmit={handleSubmit}>
@@ -95,7 +97,8 @@ function Posts() {
           </button>
         </form>
       </div>
-      <div>
+      {/* posts display area */}
+      <div className='posts-display-area'>
         <h2>Posts</h2>
         <ul>
           {posts.map(post => (
@@ -103,7 +106,7 @@ function Posts() {
               {editingPostId === post._id ? ( // If post is being edited
                 <div>
                   <textarea
-                    class="form-control" 
+                    className="form-control" 
                     id="exampleFormControlTextarea1" 
                     rows="3"
                     value={updatedContent}
