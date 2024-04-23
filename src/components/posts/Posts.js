@@ -101,19 +101,33 @@ function Posts() {
           {posts.map(post => (
             <div key={post._id} className='posts-area'>
               {editingPostId === post._id ? ( // If post is being edited
-                <>
+                <div>
                   <textarea
+                    class="form-control" 
+                    id="exampleFormControlTextarea1" 
+                    rows="3"
                     value={updatedContent}
                     onChange={(e) => setUpdatedContent(e.target.value)}
                   ></textarea>
-                  <button onClick={() => handleUpdate(post._id, updatedContent)}>Update</button>
-                </>
+                  <button 
+                    className='btn btn-success mt-2'
+                    onClick={() => handleUpdate(post._id, updatedContent)}
+                  >Update</button>
+                </div>
               ) : (
-                <>
+                <div className='mt-1 d-flex justify-content-between'>
                   <p>{post.content}</p>
-                  <button onClick={() => setEditingPostId(post._id)}>Edit</button>
-                  <button onClick={() => handleDelete(post._id)}>Delete</button>
-                </>
+                  <div>
+                  <button 
+                    className='btn btn-secondary mx-1'
+                    onClick={() => setEditingPostId(post._id)}
+                  >Edit</button>
+                  <button 
+                    className='btn btn-danger mx-1'
+                    onClick={() => handleDelete(post._id)}
+                  >Delete</button>
+                  </div>
+                </div>
               )}
             </div>
           ))}
