@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Signup from '../Signup/Signup'; // Assuming Signup component is imported from './Signup'
 
 function About() {
-  return (
-    <div>About</div>
-  )
+  
 }
 
-export default About
+export default About;
