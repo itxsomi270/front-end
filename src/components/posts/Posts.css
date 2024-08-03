@@ -1,11 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* HowItWorks.css */
 
-.posts-area{
-    margin: 1rem 0px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 450;
-    border: 1px solid grey;
-    padding: 2rem;
-    border-radius: 10px;
-    background-color: #E8DFCA;
+.how-it-works-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.how-it-works-container h1 {
+  color: #35424a;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  margin-bottom: 40px;
+}
+
+.step-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.step-text {
+  flex: 1;
+  max-width: 50%;
+}
+
+.step-image {
+  flex: 1;
+  max-width: 50%;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.step-image.left {
+  order: -1; /* Image comes first when on the left */
+}
+
+.step-image.right {
+  order: 1; /* Image comes after text when on the right */
+}
+
+.step-image:hover {
+  transform: scale(1.05);
+}
+
+.step h2 {
+  color: #e8491d;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.step p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .how-it-works-container h1 {
+    font-size: 28px;
+  }
+
+  .step h2 {
+    font-size: 22px;
+  }
+
+  .step p {
+    font-size: 14px;
+  }
+
+  .step-content {
+    flex-direction: column;
+  }
+
+  .step-image, .step-text {
+    max-width: 100%;
+  }
 }

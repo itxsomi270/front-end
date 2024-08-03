@@ -1,3 +1,68 @@
-body{
-    overflow-x: hidden;
+/* MyNavbar.css */
+
+/* Navbar Container */
+.mynav {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.navbar-logo {
+  height: 100px;
+  width: auto;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+/* Active and Hover States */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 0.25rem;
+}
+
+/* Username Display */
+.navbar-text {
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Responsive Toggler Icon */
+.navbar-toggler {
+  border-color: rgba(0, 123, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 123, 255, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .mynav {
+    padding: 1rem;
+  }
+
+  .navbar-logo {
+    height: 40px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .navbar-text {
+    font-size: 0.9rem;
+  }
 }

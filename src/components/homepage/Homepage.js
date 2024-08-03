@@ -1,73 +1,72 @@
-import React from 'react'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-let data = [
-  {
-    name: 'JavaScript 1',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp_ain_2elL_vAdCHgnuueg6z8goP-CYedqw&s',
-    desp: 'hey i am a lion'
-  },
-  {
-    name: 'JavaScript 2',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl6-bR160PHcqZvbjE1duFMI3pe3JAemGd9g&s',
-    desp: 'hey i am a man'
-  },
-  {
-    name: 'JavaScript 3',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe_sNB2FAju9bH-g8s451qcDhV-hIL7pPaMw&s',
-    desp: 'hey i am a boy'
-  },
-  {
-    name: 'JavaScript 4',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwURuFhjSLuTxKENpfOgAzhMODuDIR2tQPMw&s',
-    desp: 'hey i am a cat'
-  },
-  {
-    name: 'JavaScript',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWDO1su5xHOwMnyDz4SpGAuMjZPbSHwwJ4Q&s',
-    desp: 'hey i am a dog'
-  }
-]
+import React, { useState, useEffect } from 'react';
+import './Homepage.css'
+import '../../App.css'
 
 
-function home() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1
-  }
-  return (
-    <div className='container my-2'>
-      <div className='row'>
-      <Slider {...settings}>
+const Home = () => {
+  // Sample listings data (this would typically come from an API)
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    const sampleListings = [
       {
-        data.map((d) => {
-          return (
-            <div className="card col-md-4" key={d.id}>
-              <img 
-                className="card-img-top" 
-                src={d.img} 
-                alt="Card image cap"
-                style={{ width: "100%", height: "300px" }}
-                />
-              <div className="card-body">
-                <h5 className="card-title">{d.name}</h5>
-                <p className="card-text">{d.desp}</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          );
-        })
-      }
-    </Slider>
-    </div>
-    </div>
-  )
-}
+        id: 1,
+        title: 'Shared Rooms',
+        description: 'A cozy shared room with all the basic amenities.',
+        imageUrl: 'https://picsum.photos/400/300/?random=1',
+      },
+      {
+        id: 2,
+        title: 'Whole Room',
+        description: 'A quiet room in a friendly neighborhood.',
+        imageUrl: 'https://picsum.photos/400/300/?random=2',
+      },
+      {
+        id: 3,
+        title: 'Whole Apartment',
+        description: 'Spacious apartment perfect for students.',
+        imageUrl: 'https://picsum.photos/400/300/?random=3',
+      },
+    ];
 
+    // Simulating an API call
+    setTimeout(() => {
+      setListings(sampleListings);
+    }, 1000);
+  }, []);
 
-export default home
+  return (
+    <div>
+      <section className="hero">
+        <div className="container">
+          <h2>Find your perfect space</h2>
+          <form id="search-form">
+            <input type="text" placeholder="Enter a location..." id="search-input" />
+            <button type="submit">Search</button>
+          </form>
+        </div>
+      </section>
+
+      <section className="listings">
+        <div className="container">
+          <h3>Available Listings</h3>
+          <div id="listings-container">
+            {listings.length > 0 ? (
+              listings.map((listing) => (
+                <div key={listing.id} className="listing-item">
+                  <img src={listing.imageUrl} alt={listing.title} />
+                  <h4>{listing.title}</h4>
+                  <p>{listing.description}</p>
+                </div>
+              ))
+            ) : (
+              <p>Loading listings...</p>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

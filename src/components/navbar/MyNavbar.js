@@ -1,37 +1,63 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './MyNavbar.css';
+import logo from './logo.png';
 
-function MyNavbar() {
+function MyNavbar({ userData }) {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3 px-3 w-100">
+    <nav className="navbar navbar-expand-lg mynav w-100 p-0 m-0">
       <div className="container-fluid">
-        <Link className="navbar-brand px-3" to="/homepage">Usama</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        {/* Logo */}
+        <Link className="navbar-brand" to="/homepage">
+          <img src={logo} alt="Find a Hostel" className="navbar-logo" />
+        </Link>
+
+        {/* Toggle button for mobile view */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+        {/* Navbar links */}
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/homepage">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/posts">How it Works</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/rent">Rent Your Space</Link>
+            </li>
+
+            {/* Conditional rendering for Login/Signup or Username */}
+            {!userData ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup">Sign Up</Link>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <span className="navbar-text">{userData.name}</span>
+              </li>
+            )}
           </ul>
-          <form className="d-flex" role="search">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item px-3">
-                <Link className="nav-link active" aria-current="page" to="/homepage">Home</Link>
-              </li>
-              <li className="nav-item px-3">
-                <Link className="nav-link active" aria-current="page" to="/posts">Posts</Link>
-              </li>
-              <li className="nav-item px-3">
-                <Link className="nav-link active" aria-current="page" to="/about">About</Link>
-              </li>
-              <li className="nav-item px-3">
-                <Link className="nav-link active" aria-current="page" to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </form>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default MyNavbar;

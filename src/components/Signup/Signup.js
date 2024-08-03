@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Signup.css';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/register', {
+      const response = await fetch('http://localhost:4000/signup', { // Correct endpoint
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -31,11 +32,9 @@ function Signup() {
         setMessage(responseData.message);
         console.log('User registered successfully');
         setFormVisible(false); // Hide the form on successful registration
-        // Handle success, such as redirecting to another page
       } else {
         setMessage(responseData.error || 'Failed to register user');
         console.error('Failed to register user');
-        // Handle error, such as displaying error message to the user
       }
     } catch (error) {
       setMessage('Internal server error');
@@ -44,29 +43,59 @@ function Signup() {
   };
 
   return (
-    <div className='container'>
-      <div className='row d-flex justify-content-center'>
-        <div className='col-md-6 form'>
-          {formVisible && ( // Render the form only if formVisible state is true
+    <div className='sign-up-container'>
+      <div className='sign-up-box'>
+        {formVisible && (
+          <>
+            <h2>Sign Up</h2> {/* Heading remains as Sign Up */}
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
-                <input type="text" className="form-control" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter Name" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter Name"
+                  required
+                />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email address</label>
-                <input type="email" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter email" />
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter Email"
+                  required
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password</label>
-                <input type="password" className="form-control" id="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  required
+                />
+                <small className="form-text text-muted">
+                  We'll never share your email with anyone else.
+                </small>
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-sign-up">Sign Up</button> {/* Button text remains as Sign Up */}
             </form>
-          )}
-          {message && <div className="alert alert-info mt-3">{message}</div>}
-        </div>
+          </>
+        )}
+        {message && <div className="alert alert-info mt-3">{message}</div>}
       </div>
     </div>
   );
