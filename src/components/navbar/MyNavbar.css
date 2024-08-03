@@ -59,20 +59,36 @@
   border-radius: 0; /* Maintain square shape on hover */
 }
 
+/* Dropdown Menu */
 .navbar-nav .dropdown-menu {
-  background-color: #000;
+  background-color: #fff;
   border: none;
   padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  position: absolute;
+  left: auto;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 150px; /* Set a specific width for the dropdown */
 }
 
 .navbar-nav .dropdown-item {
-  color: #fff;
-  padding: 0.5rem 1.5rem;
+  color: #414141;
+  padding: 0.5rem 1rem; /* Adjust padding to make it more compact */
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap; /* Prevent text wrapping inside the dropdown */
+  text-align: center; /* Center align text */
 }
 
 .navbar-nav .dropdown-item:hover {
   background-color: #fcc334;
   color: #000;
+}
+
+/* Dropdown Toggle Link */
+.dropdown-toggle::after {
+  display: none; /* Remove default dropdown arrow */
 }
 
 /* Get Started Button */
@@ -119,5 +135,20 @@
     margin-top: 0.5rem;
     width: 100%;
     text-align: center;
+  }
+
+  .navbar-nav-right {
+    justify-content: flex-start;
+  }
+
+  .navbar-nav .dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    right: 0;
+    width: auto; /* Allow the dropdown width to adjust */
+  }
+
+  .navbar-nav .dropdown-item {
+    color: #000;
   }
 }

@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom';
 import './MyNavbar.css';
 import logo from './logo.png';
 
-function MyNavbar({ userData }) {
+function MyNavbar({ userData, handleLogout }) {
   return (
     <nav className="navbar navbar-expand-lg mynav w-100 p-0 py-2 m-0">
       <div className="container-fluid">
-        {/* Logo */}
         <Link className="navbar-brand p-0" to="/homepage">
           <img src={logo} alt="Find a Hostel" className="navbar-logo" />
         </Link>
 
-        {/* Toggle button for mobile view */}
         <button
           className="navbar-toggler"
           type="button"
@@ -25,7 +23,6 @@ function MyNavbar({ userData }) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Centered Navbar links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav navbar-nav-center">
             <li className="nav-item">
@@ -39,7 +36,6 @@ function MyNavbar({ userData }) {
             </li>
           </ul>
 
-          {/* Right-aligned Navbar links */}
           <ul className="navbar-nav navbar-nav-right ms-auto">
             {!userData?.name ? (
               <>
@@ -51,8 +47,20 @@ function MyNavbar({ userData }) {
                 </li>
               </>
             ) : (
-              <li className="nav-item">
-                <span className="navbar-text">{userData.name}</span>
+              <li className="nav-item dropdown">
+                <a 
+                  className="nav-link dropdown-toggle" 
+                  href="#" 
+                  id="navbarDropdown" 
+                  role="button" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  {userData.name}
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a className="dropdown-item" href="#" onClick={handleLogout}>Log Out</a></li>
+                </ul>
               </li>
             )}
           </ul>
