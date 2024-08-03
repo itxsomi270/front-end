@@ -2,67 +2,114 @@
 
 /* Navbar Container */
 .mynav {
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Logo */
 .navbar-logo {
-  height: 100px;
+  height: 40px;
   width: auto;
 }
 
-/* Navbar Links */
-.navbar-nav .nav-link {
-  color: #333;
+/* Centered Navbar Links */
+.navbar-nav-center {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-nav-center .nav-link {
+  color: #414141;
   font-weight: 500;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s, background-color 0.3s;
+  padding: 0 1.5rem;
+  transition: color 0.3s ease;
 }
 
-/* Active and Hover States */
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link:hover {
-  color: #007bff;
-  background-color: rgba(0, 123, 255, 0.1);
-  border-radius: 0.25rem;
-}
-
-/* Username Display */
-.navbar-text {
+.navbar-nav-center .nav-link:hover {
   color: #333;
-  font-weight: 600;
+}
+
+/* Navbar Links (Right-aligned) */
+.navbar-nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav-right .nav-link {
+  color: #414141;
+  font-weight: 500;
   font-size: 1rem;
+  padding: 0 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav-right .nav-link:hover {
+  color: #ccc;
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #000;
+  border: none;
+  padding: 0;
+}
+
+.navbar-nav .dropdown-item {
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #111;
+}
+
+/* Get Started Button */
+.btn-get-started {
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
   padding: 0.5rem 1rem;
+  border-radius: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-get-started:hover {
+  background-color: #ddd;
+  color: #000;
 }
 
 /* Responsive Toggler Icon */
 .navbar-toggler {
-  border-color: rgba(0, 123, 255, 0.5);
+  border-color: #fff;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 123, 255, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
 }
 
 /* Responsive Styles */
 @media (max-width: 991.98px) {
-  .mynav {
-    padding: 1rem;
-  }
-
   .navbar-logo {
-    height: 40px;
+    height: 30px;
   }
 
-  .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    padding: 0.5rem;
+  .navbar-nav-center {
+    justify-content: flex-start;
   }
 
-  .navbar-text {
+  .navbar-nav-center .nav-link {
     font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-get-started {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: center;
   }
 }

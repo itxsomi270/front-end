@@ -25,9 +25,9 @@ function MyNavbar({ userData }) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar links */}
+        {/* Centered Navbar links */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav navbar-nav-center">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/homepage">Home</Link>
             </li>
@@ -37,18 +37,17 @@ function MyNavbar({ userData }) {
             <li className="nav-item">
               <Link className="nav-link" to="/rent">Rent Your Space</Link>
             </li>
+          </ul>
 
-            {/* Conditional rendering for Login/Signup or Username */}
-            {!userData ? (
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">Login</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signup">Sign Up</Link>
-                </li>
-              </>
-            ) : (
+          {/* Right-aligned Navbar links */}
+          <ul className="navbar-nav navbar-nav-right ms-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">Log In</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link btn-get-started" to="/signup">Get Started</Link>
+            </li>
+            {userData && (
               <li className="nav-item">
                 <span className="navbar-text">{userData.name}</span>
               </li>
