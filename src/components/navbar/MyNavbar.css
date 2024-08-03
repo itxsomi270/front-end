@@ -2,6 +2,7 @@
 
 /* Navbar Container */
 .mynav {
+  font-family: "Libre Franklin", sans-serif;
   background-color: white;
   padding: 0 2rem;
   display: flex;
@@ -26,12 +27,15 @@
   color: #414141;
   font-weight: 500;
   font-size: 1rem;
-  padding: 0 1.5rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1.5rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 0; /* Square shape by default */
 }
 
 .navbar-nav-center .nav-link:hover {
-  color: #333;
+  color: #fff;
+  background-color: #fcc334;
+  border-radius: 0; /* Maintain square shape on hover */
 }
 
 /* Navbar Links (Right-aligned) */
@@ -44,12 +48,15 @@
   color: #414141;
   font-weight: 500;
   font-size: 1rem;
-  padding: 0 1.5rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1.5rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 0; /* Square shape by default */
 }
 
 .navbar-nav-right .nav-link:hover {
-  color: #ccc;
+  color: #fff;
+  background-color: #fcc334;
+  border-radius: 0; /* Maintain square shape on hover */
 }
 
 .navbar-nav .dropdown-menu {
@@ -64,7 +71,8 @@
 }
 
 .navbar-nav .dropdown-item:hover {
-  background-color: #111;
+  background-color: #fcc334;
+  color: #000;
 }
 
 /* Get Started Button */
@@ -78,7 +86,7 @@
 }
 
 .btn-get-started:hover {
-  background-color: #ddd;
+  background-color: #fcc334;
   color: #000;
 }
 

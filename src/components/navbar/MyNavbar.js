@@ -5,10 +5,10 @@ import logo from './logo.png';
 
 function MyNavbar({ userData }) {
   return (
-    <nav className="navbar navbar-expand-lg mynav w-100 p-0 m-0">
+    <nav className="navbar navbar-expand-lg mynav w-100 p-0 py-2 m-0">
       <div className="container-fluid">
         {/* Logo */}
-        <Link className="navbar-brand" to="/homepage">
+        <Link className="navbar-brand p-0" to="/homepage">
           <img src={logo} alt="Find a Hostel" className="navbar-logo" />
         </Link>
 
@@ -41,13 +41,16 @@ function MyNavbar({ userData }) {
 
           {/* Right-aligned Navbar links */}
           <ul className="navbar-nav navbar-nav-right ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">Log In</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link btn-get-started" to="/signup">Get Started</Link>
-            </li>
-            {userData && (
+            {!userData?.name ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Log In</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link btn-get-started" to="/signup">Get Started</Link>
+                </li>
+              </>
+            ) : (
               <li className="nav-item">
                 <span className="navbar-text">{userData.name}</span>
               </li>
