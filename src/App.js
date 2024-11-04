@@ -6,7 +6,7 @@ import Footer from './components/footer/Footer';
 import Homepage from './components/homepage/Homepage';
 import Posts from './components/posts/Posts';
 import Login from './components/login/Login';
-import Signup from './components/signup/Signup';
+import Signup from './components/Signup/Signup';
 import Rent from './components/rent/Rent';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
