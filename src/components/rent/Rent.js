@@ -144,7 +144,7 @@ function Rent({ userData }) {
               />
             </div>
             <div className="form-group">
-              <button type="button" onClick={handleFindLocation} className="btn btn-secondary">
+              <button type="button" onClick={handleFindLocation} className="btn btn-secondary location">
                 Find My Location
               </button>
             </div>
@@ -185,7 +185,7 @@ function Rent({ userData }) {
                 name="images"
                 multiple
                 onChange={handleFileChange}
-                className="form-control"
+                className="file-input"
               />
             </div>
             <button type="submit" className="btn btn-primary">Submit Listing</button>

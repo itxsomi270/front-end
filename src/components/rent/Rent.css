@@ -1,32 +1,44 @@
-/* RentYourSpace.css */
-
 .rent-your-space {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
     background-color: #0a0a0a;;
     border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .rent-your-space h1 {
-    color: #35424a;
+    color: #fff;
     text-align: center;
     margin-bottom: 30px;
     font-size: 32px;
 }
 
-.btn-primary {
-    background-color: #28208c;
-    color: #ffffff;
+#description{
+    background-color: #0a0a0a;
 }
 
-.btn-primary:hover {
+.btn-primary, .location {
+    background-color: #28208c;
+    color: #ffffff;
+    border: none;
+}
+
+textarea{
+    border: none;
+    outline: none;
+}
+
+.btn-primary:hover, .location:hover {
     background-color: #1f1a6a;
 }
 
 .form-group {
     margin-bottom: 20px;
+}
+
+#propertyType{
+    background-color: #0a0a0a;
 }
 
 .form-group label {
@@ -35,7 +47,7 @@
 }
 
 .form-control {
-    border: 1px solid #ddd;
+    border: 1px solid #17181c;
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;
@@ -51,7 +63,7 @@ textarea.form-control {
 }
 
 input[type="file"] {
-    border: 1px solid #ddd;
+    border: 1px solid #17181c;
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;

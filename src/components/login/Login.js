@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import User from '../user/User'; // Adjust import path as needed
 import './Login.css';
 
-function Login({ setUserData }) { // Accept setUserData as a prop
+function Login({ setUserData }) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,8 +31,11 @@ function Login({ setUserData }) { // Accept setUserData as a prop
 
       if (response.ok) {
         setMessage('');
-        setUserData(responseData.user); // Update user data in App component
+        setUserData(responseData.user);
         console.log('User logged in successfully');
+        
+        // Redirect to the homepage
+        navigate('/');
       } else {
         setMessage(responseData.error || 'Failed to log in');
         console.error('Failed to log in');
