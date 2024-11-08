@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='wrapper'>
       {/* Carousel Section */}
       <div className="carousel">
         <div className="search-bar">
@@ -52,77 +52,71 @@ const Home = () => {
       </div>
 
       {/* Properties Section */}
-      <div className="container properties-section py-5 px-0">
+      <div className="container-fluid properties-section py-5 px-4">
         <h2>Properties for You</h2>
         <p>These properties are trending. Find the perfect place, book a tour, or contact to learn more.</p>
 
         {/* Rows of Cards */}
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 1" />
                 <div className="card-body">
                   <h5 className="card-title">Property 1</h5>
                   <p className="card-text">A beautiful property with scenic views.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 2" />
                 <div className="card-body">
                   <h5 className="card-title">Property 2</h5>
                   <p className="card-text">Located in the heart of the city.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 3" />
                 <div className="card-body">
                   <h5 className="card-title">Property 3</h5>
                   <p className="card-text">Modern amenities and spacious rooms.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="row mt-4">
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 4" />
                 <div className="card-body">
                   <h5 className="card-title">Property 4</h5>
                   <p className="card-text">Quiet neighborhood with lots of space.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 5" />
                 <div className="card-body">
                   <h5 className="card-title">Property 5</h5>
                   <p className="card-text">Close to public transportation.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 ">
               <div className="card">
                 <img src="https://via.placeholder.com/300" className="card-img-top" alt="Property 6" />
                 <div className="card-body">
                   <h5 className="card-title">Property 6</h5>
                   <p className="card-text">Affordable and well-maintained.</p>
-                  <button className="btn btn-primary">Learn More</button>
                 </div>
               </div>
             </div>

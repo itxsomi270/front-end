@@ -24,7 +24,7 @@ function App() {
     <Router>
       <MyNavbar userData={userData} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/posts" element={<Posts />} />
         <Route 
           path="/login" 

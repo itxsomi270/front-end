@@ -30,7 +30,7 @@ function MyNavbar({ userData, handleLogout }) {
               <FaHeart className="nav-icon" />
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/homepage">Home</Link>
+              <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/rent">List a Property</Link>

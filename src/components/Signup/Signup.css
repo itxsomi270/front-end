@@ -5,21 +5,20 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #0a0a0a;
   }
   
   .sign-up-box {
-    background-color: #ffffff;
+    background-color: #0a0a0a;;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
   
   .sign-up-box h2 {
-    color: #35424a;
     margin-bottom: 20px;
     font-size: 28px;
   }
@@ -30,7 +29,6 @@
   }
   
   .form-group label {
-    color: #333;
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
@@ -45,12 +43,11 @@
   }
   
   .form-control:focus {
-    border-color: #e8491d;
     outline: none;
   }
   
   .btn-sign-up {
-    background-color: #e8491d;
+    background-color: #28208c;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -61,18 +58,33 @@
   }
   
   .btn-sign-up:hover {
-    background-color: #d73d17;
+    background-color: #1f1a6a;
   }
   
   .alert-info {
     background-color: #d9edf7;
-    color: #31708f;
     padding: 10px;
     border-radius: 4px;
     margin-top: 15px;
   }
+
+  .form-group input {
+    background-color: #0a0a0a;
+    color: #fff; 
+    border: 1px solid #444; 
+  }
   
-  /* Responsive styling */
+  .form-group input:focus {
+    background-color: #0a0a0a; 
+    outline: none; 
+    border-color: #888;
+  }
+  
+  h2, label{
+    color: #fff !important;
+  }
+  
+
   @media (max-width: 768px) {
     .sign-up-box {
       padding: 20px;

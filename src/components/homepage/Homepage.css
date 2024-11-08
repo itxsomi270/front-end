@@ -1,4 +1,4 @@
-/* Carousel Container */
+
 .carousel {
   position: relative;
   width: 100%;
@@ -9,10 +9,38 @@
   font-family: "Libre Franklin", sans-serif;
 }
 
+.wrapper{
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+/* Overlay Effect */
+.carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+.carousel-content {
+  z-index: 2;
+}
+
+.search-bar input{
+  background-color: #17181c;
+  color: #fff;
+  outline: none !important;
+  border: none !important;
+}
+
 /* Headline in Search Bar */
 .head {
-  font-weight: bold;
-  color: purple;
+  Font-size: 36px;
+  font-weight: 400;
+  line-height: 61.6px;
+  color: white;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -80,6 +108,9 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.card-img-top{
+  height: 250px !important;
+}
 /* Properties Section */
 .properties-section {
   padding: 2rem;
@@ -106,13 +137,13 @@
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s;
-  background-color: #0a0a0a;
+  background-color: #17181c;
   color: #fff;
+  margin-bottom: 1rem;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  background-color: #141519;
 }
 
 .card-title {
@@ -125,6 +156,8 @@
 .card-text {
   font-size: 0.9rem;
   color: #555;
+  padding-bottom: 5px !important;
+  margin-bottom: 5px !important;
 }
 
 .btn-primary {
@@ -135,6 +168,10 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+.card-body{
+  padding: 5px;
 }
 
 /* Responsive Adjustments */
@@ -155,7 +192,7 @@
 
 @media (max-width: 480px) {
   .carousel {
-    height: 250px;
+    height: 450px;
   }
 
   .carousel-button {
@@ -165,5 +202,8 @@
 
   .head {
     font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  }
+  .properties-section{
+    padding: 2px !important;
   }
 }

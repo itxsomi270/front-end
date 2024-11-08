@@ -5,14 +5,13 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #0a0a0a;;
   }
   
   .sign-in-box {
-    background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     width: 100%;
     max-width: 400px;
     text-align: center;
@@ -45,12 +44,11 @@
   }
   
   .form-control:focus {
-    border-color: #e8491d;
     outline: none;
   }
   
   .btn-sign-in {
-    background-color: #e8491d;
+    background-color: #28208c;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -61,7 +59,7 @@
   }
   
   .btn-sign-in:hover {
-    background-color: #d73d17;
+    background-color: #1f1a6a;
   }
   
   .alert-info {

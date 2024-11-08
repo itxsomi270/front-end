@@ -1,6 +1,5 @@
 import React from 'react';
 import './Posts.css';
-
 function Posts() {
   return (
     <div className="how-it-works-container">

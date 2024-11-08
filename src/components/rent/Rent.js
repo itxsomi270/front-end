@@ -195,8 +195,8 @@ function Rent({ userData }) {
       ) : (
         <div className='overlay p-5'>
           <h2>Please Sign Up to List Your Property</h2>
-          <button onClick={() => navigate('/signup')} className='btn btn-primary px-5 me-2'>Sign Up</button>
-          <button onClick={() => navigate('/login')} className='btn btn-primary px-5 '>Login</button>
+          <button onClick={() => navigate('/signup')} className='btn btn-primary px-5 me-2 mb-2'>Sign Up</button>
+          <button onClick={() => navigate('/login')} className='btn btn-primary px-5 mb-2'>Login</button>
         </div>
       )}
     </div>
