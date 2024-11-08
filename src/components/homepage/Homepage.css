@@ -1,189 +1,169 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Carousel Container */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  font-family: "Libre Franklin", sans-serif;
 }
 
-body {
-    font-family: "Libre Franklin", sans-serif;
-    background-color: #f4f4f4;
-    line-height: 1.6;
-    color: #414141;
+/* Headline in Search Bar */
+.head {
+  font-weight: bold;
+  color: purple;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+/* Search Bar */
+.search-bar {
+  position: absolute;
+  top: 40%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; 
+  width: 80%;
+  max-width: 600px;
 }
 
-/* Header */
-header {
-    background-color: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 
-header h1 {
-    float: left;
-    margin: 0;
+/* Carousel Content */
+.carousel-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-header nav {
-    float: right;
+/* Carousel Image */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-header nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 18px;
+/* Carousel Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
 }
 
-/* Hero Section */
-.hero {
-    background: #35424a url('https://source.unsplash.com/1600x900/?room') no-repeat center center/cover;
-    color: #ffffff;
-    padding: 100px 0;
-    text-align: center;
+.carousel-button.prev {
+  left: 10px;
 }
 
-.hero h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
+.carousel-button.next {
+  right: 10px;
 }
 
-.hero form {
-    max-width: 500px;
-    margin: auto;
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.hero form input[type="text"] {
-    padding: 10px;
-    width: 70%;
-    border: none;
-    border-radius: 3px;
+/* Properties Section */
+.properties-section {
+  padding: 2rem;
+  text-align: center;
 }
 
-.hero form button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #e8491d;
-    color: #ffffff;
-    border-radius: 3px;
-    cursor: pointer;
+.properties-section h2 {
+  Font-size: 56px;
+  font-weight: 500;
+  line-height: 61.6px;
+  color: white;
+  margin-bottom: 0.5rem;
 }
 
-.hero form button:hover {
-    background-color: #e8491d;
+.properties-section p {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 2rem;
 }
 
-/* Listings Section */
-.listings {
-    padding: 30px 0;
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  background-color: #0a0a0a;
+  color: #fff;
 }
 
-.listings h3 {
-    margin-bottom: 20px;
-    font-size: 28px;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }
 
-#listings-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.listing-item {
-    background-color: #ffffff;
-    padding: 15px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    text-align: center;
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
 }
 
-.listing-item img {
-    width: 100%;
-    height: 300px;
-    border-radius: 5px;
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s;
 }
 
-.listing-item h4 {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #35424a;
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-.listing-item p {
-    color: #777777;
-    margin-top: 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .container {
-        width: 90%;
-    }
-
-    #listings-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    header h1 {
-        float: none;
-        text-align: center;
-    }
+  .carousel {
+    height: 300px;
+  }
 
-    header nav {
-        float: none;
-        text-align: center;
-        margin-top: 10px;
-    }
+  .carousel-button {
+    font-size: 1.25rem;
+    padding: 8px;
+  }
 
-    header nav a {
-        display: block;
-        margin: 5px 0;
-    }
-
-    .hero h2 {
-        font-size: 28px;
-    }
-
-    .hero form {
-        flex-direction: column;
-    }
-
-    .hero form input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .hero form button {
-        width: 100%;
-    }
-
-    #listings-container {
-        grid-template-columns: 1fr;
-    }
-
-    .listing-item img {
-        height: auto;
-    }
+  .head {
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem); /* Smaller on smaller screens */
+  }
 }
 
 @media (max-width: 480px) {
-    .hero h2 {
-        font-size: 24px;
-    }
+  .carousel {
+    height: 250px;
+  }
 
-    .listing-item h4 {
-        font-size: 18px;
-    }
+  .carousel-button {
+    font-size: 1rem;
+    padding: 6px;
+  }
 
-    .listing-item p {
-        font-size: 14px;
-    }
+  .head {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  }
 }
