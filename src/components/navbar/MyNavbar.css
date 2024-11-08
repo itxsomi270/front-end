@@ -1,62 +1,45 @@
-/* MyNavbar.css */
-
-/* Navbar Container */
+/* General Navbar Styling */
 .mynav {
   font-family: "Libre Franklin", sans-serif;
-  background-color: white;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background-color: #0a0a0a;
+  color: #fff;
+  font-weight: bold;
 }
 
-/* Logo */
 .navbar-logo {
   height: 40px;
   width: auto;
 }
 
-/* Centered Navbar Links */
-.navbar-nav-center {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.navbar-nav-center .nav-link {
-  color: #414141;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.5rem 1.5rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 0; /* Square shape by default */
-}
-
-.navbar-nav-center .nav-link:hover {
-  color: #fff;
-  background-color: #fcc334;
-  border-radius: 0; /* Maintain square shape on hover */
-}
-
-/* Navbar Links (Right-aligned) */
-.navbar-nav-right {
-  display: flex;
+.navbar-nav {
   align-items: center;
 }
 
-.navbar-nav-right .nav-link {
-  color: #414141;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.5rem 1.5rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border-radius: 0; /* Square shape by default */
+/* Center and Right Alignments */
+.navbar-nav-center {
+  display: flex;
+  justify-content: end;
+  flex-grow: 1;
+  padding: 0 10px;
 }
 
-.navbar-nav-right .nav-link:hover {
+/* Link Styling */
+.navbar-nav .nav-link {
   color: #fff;
-  background-color: #fcc334;
-  border-radius: 0; /* Maintain square shape on hover */
+  font-size: 0.95rem;
+  padding: 0 25px;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Icons */
+.navbar-nav .nav-icon {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 1.2rem;
 }
 
 /* Dropdown Menu */
@@ -70,49 +53,30 @@
   left: auto;
   right: 0;
   margin-top: 0.5rem;
-  width: 150px; /* Set a specific width for the dropdown */
+  width: 150px;
 }
 
 .navbar-nav .dropdown-item {
-  color: #414141;
-  padding: 0.5rem 1rem; /* Adjust padding to make it more compact */
-  transition: background-color 0.3s, color 0.3s;
-  white-space: nowrap; /* Prevent text wrapping inside the dropdown */
-  text-align: center; /* Center align text */
+  color: #000;
+  padding: 10px 15px;
 }
 
 .navbar-nav .dropdown-item:hover {
-  background-color: #fcc334;
-  color: #000;
+  background-color: #f0f0f0;
 }
 
-/* Dropdown Toggle Link */
+/* Remove the default dropdown arrow for the dropdown toggle */
 .dropdown-toggle::after {
-  display: none; /* Remove default dropdown arrow */
+  display: none;
 }
 
-/* Get Started Button */
-.btn-get-started {
-  background-color: #fff;
-  color: #000;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-get-started:hover {
-  background-color: #fcc334;
-  color: #000;
-}
-
-/* Responsive Toggler Icon */
+/* Navbar Toggler Icon */
 .navbar-toggler {
   border-color: #fff;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* Responsive Styles */
@@ -125,16 +89,9 @@
     justify-content: flex-start;
   }
 
-  .navbar-nav-center .nav-link {
+  .navbar-nav .nav-link {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
-  }
-
-  .btn-get-started {
-    margin-left: 0;
-    margin-top: 0.5rem;
-    width: 100%;
-    text-align: center;
   }
 
   .navbar-nav-right {
@@ -149,6 +106,6 @@
   }
 
   .navbar-nav .dropdown-item {
-    color: #000;
+    padding: 10px 15px;
   }
 }

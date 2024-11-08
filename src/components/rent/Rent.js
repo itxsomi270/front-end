@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Rent.css';
 
 function Rent({ userData }) {
+
+  // variables declaration
   const [location, setLocation] = useState('');
   const [formData, setFormData] = useState({
     title: '',
@@ -13,9 +15,10 @@ function Rent({ userData }) {
   });
   const [images, setImages] = useState([]);
   const [message, setMessage] = useState('');
-  const [addressToFetch, setAddressToFetch] = useState('');
   const navigate = useNavigate();
+  // variables declaration ends
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -59,16 +62,49 @@ function Rent({ userData }) {
     }
   };
 
-  const mapUrl = location ? `https://www.google.com/maps?q=${location}` : '#';
+  const handleFindLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+  
+          try {
+            // OpenStreetMap Nominatim API
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+            );
+  
+            const data = await response.json();
+  
+            // Use address details from the response
+            const address = data.display_name || `${latitude}, ${longitude}`;
+            setLocation(address);
+            setFormData({ ...formData, address });
+          } catch (error) {
+            console.error("Error fetching address:", error);
+            alert("Unable to retrieve location details.");
+          }
+        },
+        (error) => {
+          console.error("Error getting location:", error.message);
+          alert("Unable to retrieve location.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+  
 
   return (
     <div className='container rent-your-space'>
       {userData ? (
         <>
           <h1>Rent Your Space</h1>
+
           {/* Form to submit rental listing */}
           <form onSubmit={handleSubmit}>
-            {/* Form fields */}
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input
@@ -100,12 +136,17 @@ function Rent({ userData }) {
                 type="text"
                 id="address"
                 name="address"
-                value={formData.address || location}
+                value={formData.address}
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Property Address"
                 required
               />
+            </div>
+            <div className="form-group">
+              <button type="button" onClick={handleFindLocation} className="btn btn-secondary">
+                Find My Location
+              </button>
             </div>
             <div className="form-group">
               <label htmlFor="price">Price</label>

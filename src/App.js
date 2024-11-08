@@ -8,6 +8,8 @@ import Posts from './components/posts/Posts';
 import Login from './components/login/Login';
 import Signup from './components/Signup/Signup';
 import Rent from './components/rent/Rent';
+import About from './components/About/About'
+import Contact from './components/contact/Contact'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
           path="/rent" 
           element={<Rent userData={userData} />} 
         />
+        <Route path="/about" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

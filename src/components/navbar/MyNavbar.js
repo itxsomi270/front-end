@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './MyNavbar.css';
 import logo from './logo.png';
+import { FaHeart } from 'react-icons/fa';
 
 function MyNavbar({ userData, handleLogout }) {
   return (
-    <nav className="navbar navbar-expand-lg mynav w-100 p-0 py-2 m-0">
+    <nav className="navbar navbar-expand-lg mynav">
       <div className="container-fluid">
-        <Link className="navbar-brand p-0" to="/homepage">
+        <Link className="navbar-brand" to="/homepage">
           <img src={logo} alt="Find a Hostel" className="navbar-logo" />
         </Link>
 
@@ -24,36 +25,42 @@ function MyNavbar({ userData, handleLogout }) {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav navbar-nav-center">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/homepage">Home</Link>
+              <FaHeart className="nav-icon" />
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/posts">How it Works</Link>
+              <Link className="nav-link" to="/homepage">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/rent">Rent Your Space</Link>
+              <Link className="nav-link" to="/rent">List a Property</Link>
             </li>
-          </ul>
-
-          <ul className="navbar-nav navbar-nav-right ms-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/posts">Business Solutions</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About Us</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contact</Link>
+            </li>
             {!userData?.name ? (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">Log In</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link btn-get-started" to="/signup">Get Started</Link>
+                  <Link className="nav-link" to="/signup">Sign Up</Link>
                 </li>
               </>
             ) : (
               <li className="nav-item dropdown">
-                <a 
-                  className="nav-link dropdown-toggle" 
-                  href="#" 
-                  id="navbarDropdown" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   {userData.name}
