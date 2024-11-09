@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Rent.css';
 
 function Rent({ userData }) {
+
   // variables declaration
   const [location, setLocation] = useState('');
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ function Rent({ userData }) {
   const navigate = useNavigate();
   // variables declaration ends
 
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -27,17 +29,6 @@ function Rent({ userData }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Form validation
-    if (!formData.title || !formData.description || !formData.address || !formData.price || !formData.propertyType) {
-      setMessage('All fields are required.');
-      return;
-    }
-
-    if (isNaN(formData.price) || formData.price <= 0) {
-      setMessage('Price must be a valid positive number.');
-      return;
-    }
 
     const formDataWithFiles = new FormData();
     formDataWithFiles.append('title', formData.title);
@@ -77,15 +68,15 @@ function Rent({ userData }) {
         async (position) => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-
+  
           try {
             // OpenStreetMap Nominatim API
             const response = await fetch(
               `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
             );
-
+  
             const data = await response.json();
-
+  
             // Use address details from the response
             const address = data.display_name || `${latitude}, ${longitude}`;
             setLocation(address);
@@ -104,6 +95,7 @@ function Rent({ userData }) {
       alert("Geolocation is not supported by this browser.");
     }
   };
+  
 
   return (
     <div className='container rent-your-space'>
@@ -124,7 +116,6 @@ function Rent({ userData }) {
                 className="form-control"
                 placeholder="Property Title"
                 required
-                minLength="5" // Enforcing a minimum length for title
               />
             </div>
             <div className="form-group">
@@ -137,7 +128,6 @@ function Rent({ userData }) {
                 className="form-control"
                 placeholder="Property Description"
                 required
-                minLength="10" // Enforcing a minimum length for description
               />
             </div>
             <div className="form-group">
@@ -151,7 +141,6 @@ function Rent({ userData }) {
                 className="form-control"
                 placeholder="Property Address"
                 required
-                minLength="5" // Enforcing a minimum length for address
               />
             </div>
             <div className="form-group">
@@ -170,8 +159,6 @@ function Rent({ userData }) {
                 className="form-control"
                 placeholder="Rental Price"
                 required
-                min="1" // Ensuring that the price is a positive number
-                step="any" // Allows for decimal values
               />
             </div>
             <div className="form-group">
@@ -199,7 +186,6 @@ function Rent({ userData }) {
                 multiple
                 onChange={handleFileChange}
                 className="file-input"
-                required // Making images upload mandatory
               />
             </div>
             <button type="submit" className="btn btn-primary">Submit Listing</button>
