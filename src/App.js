@@ -10,6 +10,7 @@ import Signup from './components/Signup/Signup';
 import Rent from './components/rent/Rent';
 import About from './components/About/About'
 import Contact from './components/contact/Contact'
+import Property from './components/Property/Property' 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Router>
       <MyNavbar userData={userData} handleLogout={handleLogout} />
       <Routes>
+      <Route path="/property/:propertyId" element={<Property />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/posts" element={<Posts />} />
         <Route 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Homepage.css';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 const images = [
   'https://www.investopedia.com/thmb/XPnvXjFTJnA8j8VBEtNc7DfduN4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/INV_Real_Property_GettyImages-200478960-001-080ea7835ec1444881eddbe3b2a5a632.jpg',
@@ -15,54 +15,47 @@ const Home = () => {
   const [properties, setProperties] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-  };
-
-  // Fetch properties from backend on component mount
   useEffect(() => {
     const fetchProperties = async () => {
       try {
         const response = await fetch('http://localhost:4000/get-properties');
         if (response.ok) {
           const data = await response.json();
-          console.log(data); // Log data to confirm structure and values
-          setProperties(data);  // Set properties fetched from MongoDB
+          setProperties(data);
         } else {
           console.error('Failed to fetch properties');
         }
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
-    };    
-    fetchProperties();  // Call the function to fetch properties
+    };
+    fetchProperties();
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);  // Handle search input change
+  const handleCardClick = (propertyId) => {
+    navigate(`/property/${propertyId}`);
   };
 
-  // Filter properties based on search query
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   const filteredProperties = properties.filter((property) =>
     property.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       {/* Carousel Section */}
       <div className="carousel">
-        
-      <div className="carousel-content">
-          <button className="carousel-button prev" onClick={prevSlide}>
+        <div className="carousel-content">
+          <button className="carousel-button prev" onClick={() => setCurrentIndex((currentIndex - 1 + images.length) % images.length)}>
             &#10094;
           </button>
           <img src={images[currentIndex]} className="carousel-image" alt={`Slide ${currentIndex + 1}`} />
-          <button className="carousel-button next" onClick={nextSlide}>
+          <button className="carousel-button next" onClick={() => setCurrentIndex((currentIndex + 1) % images.length)}>
             &#10095;
           </button>
         </div>
@@ -88,8 +81,7 @@ const Home = () => {
             {filteredProperties.length > 0 ? (
               filteredProperties.map((property) => (
                 <div key={property._id} className="col-md-4">
-                  <div className="card">
-                    {/* Display image, if available */}
+                  <div className="card" onClick={() => handleCardClick(property._id)}>
                     {property.images && property.images[0] && (
                       <img
                         src={`data:${property.images[0].contentType};base64,${property.images[0].data}`}
@@ -98,19 +90,18 @@ const Home = () => {
                       />
                     )}
                     <div className="card-body">
-  <h5 className="card-title">{property.title}</h5>
-  <p className="card-text">{property.address}</p>
-  <p className="card-text">Price: ${property.price}</p>
-  <p className="card-text">Bedrooms: {property.bedrooms || 'N/A'}</p>
-  <p className="card-text">Entrance Type: {property.entranceType || 'N/A'}</p>
-  <p className="card-text">Garage: {property.garage ? 'Available' : 'Not available'}</p>
-</div>
-
+                      <h5 className="card-title">{property.title}</h5>
+                      <p className="card-text">{property.address}</p>
+                      <p className="card-text">Price: ${property.price}</p>
+                      <p className="card-text">Bedrooms: {property.bedrooms || 'N/A'}</p>
+                      <p className="card-text">Entrance Type: {property.entranceType || 'N/A'}</p>
+                      <p className="card-text">Garage: {property.garage ? 'Available' : 'Not available'}</p>
+                    </div>
                   </div>
                 </div>
               ))
             ) : (
-              <p>No properties found.</p>  // If no properties match the search
+              <p>No properties found.</p>
             )}
           </div>
         </div>

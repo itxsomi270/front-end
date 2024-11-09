@@ -1,0 +1,56 @@
+.property-container {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+  }
+  
+  .property-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .property-details {
+    padding: 20px;
+    color: #333;
+  }
+  
+  .property-details h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  .property-description {
+    font-size: 1.1em;
+    color: #666;
+    margin: 15px 0;
+  }
+  
+  .property-details p, .property-utilities li, .property-amenities li {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  .property-utilities, .property-amenities {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .property-utilities li, .property-amenities li {
+    margin: 5px 0;
+  }
+  
+  .property-utilities h3, .property-amenities h3 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
