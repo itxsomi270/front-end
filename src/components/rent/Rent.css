@@ -6,6 +6,31 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
+/* Increase the size of radio buttons and checkboxes */
+.large-checkbox {
+    width: 12px;
+    height: 12px;
+    transform: scale(1.5); /* Increase size by 1.5x */
+    margin-top: 5px; /* Adjust alignment */
+    margin-bottom: 5px;
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+.location-button{
+    background-color: #28208c;
+    border: none;
+}
+.location-button:hover{
+    background-color: #1f1a6a;
+    border: none;
+}
+  
+  /* Optional: Increase the font size of the label text */
+  .form-check-label {
+    font-size: 16px; /* Change the font size as needed */
+  }
+  
 
 .rent-your-space h1 {
     color: #fff;
