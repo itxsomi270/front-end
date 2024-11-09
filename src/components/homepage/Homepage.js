@@ -31,6 +31,7 @@ const Home = () => {
         const response = await fetch('http://localhost:4000/get-properties');
         if (response.ok) {
           const data = await response.json();
+          console.log(data); // Log data to confirm structure and values
           setProperties(data);  // Set properties fetched from MongoDB
         } else {
           console.error('Failed to fetch properties');
@@ -38,7 +39,7 @@ const Home = () => {
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
-    };
+    };    
     fetchProperties();  // Call the function to fetch properties
   }, []);
 
@@ -97,10 +98,14 @@ const Home = () => {
                       />
                     )}
                     <div className="card-body">
-                      <h5 className="card-title">{property.title}</h5>
-                      <p className="card-text">{property.address}</p>
-                      <p className="card-text">Price: ${property.price}</p>
-                    </div>
+  <h5 className="card-title">{property.title}</h5>
+  <p className="card-text">{property.address}</p>
+  <p className="card-text">Price: ${property.price}</p>
+  <p className="card-text">Bedrooms: {property.bedrooms || 'N/A'}</p>
+  <p className="card-text">Entrance Type: {property.entranceType || 'N/A'}</p>
+  <p className="card-text">Garage: {property.garage ? 'Available' : 'Not available'}</p>
+</div>
+
                   </div>
                 </div>
               ))
