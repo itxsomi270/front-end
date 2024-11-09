@@ -191,7 +191,7 @@ function Rent({ userData }) {
 
 
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">Contact</label>
               <input
                 type="text"
                 id="title"
@@ -199,7 +199,7 @@ function Rent({ userData }) {
                 value={formData.title}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="Property Title"
+                placeholder="Owners Contact"
                 required
               />
             </div>

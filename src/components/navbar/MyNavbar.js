@@ -36,7 +36,7 @@ function MyNavbar({ userData, handleLogout }) {
               <Link className="nav-link" to="/rent">List a Property</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/posts">Business Solutions</Link>
+              <Link className="nav-link" to="/posts">How to</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">About Us</Link>

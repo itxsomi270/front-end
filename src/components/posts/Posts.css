@@ -1,14 +1,21 @@
-
+/* Updated styling for the "How It Works" page */
 .how-it-works-container {
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #000000; /* Black background */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Light shadow for contrast */
+  max-width: 1100px;
+  margin: 0 auto;
+  color: white; /* White text color */
 }
 
 .how-it-works-container h1 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 32px;
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: white; /* White text */
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .steps {
@@ -17,7 +24,11 @@
 }
 
 .step {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  background-color: #1c1c1c; /* Darker background for individual steps */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .step-content {
@@ -25,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
 }
 
 .step-text {
@@ -35,9 +46,11 @@
 
 .step-image {
   flex: 1;
-  max-width: 50%;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
+  max-width: 40%;
+  border-radius: 12px; /* Rounded corners for images */
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .step-image.left {
@@ -48,15 +61,32 @@
   order: 1; /* Image comes after text when on the right */
 }
 
+/* Add a subtle zoom effect on hover */
+.step-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Cutting-edge modern image style */
+.step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images fill the container and maintain aspect ratio */
+  transition: all 0.3s ease-in-out;
+}
+
 .step h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ff9f00; /* Bright color for headings */
+  font-weight: 600;
   text-transform: uppercase;
 }
 
 .step p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #dcdcdc; /* Light gray color for text */
   text-align: justify;
 }
 
@@ -71,14 +101,20 @@
   }
 
   .step p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .step-content {
     flex-direction: column;
+    align-items: center;
   }
 
-  .step-image, .step-text {
+  .step-image,
+  .step-text {
     max-width: 100%;
+  }
+
+  .step-image {
+    margin-bottom: 20px;
   }
 }

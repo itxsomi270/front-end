@@ -1,0 +1,75 @@
+/* About.css */
+.about-container {
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 3rem;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .intro {
+    font-size: 1.4rem;
+    color: #34495e;
+    text-align: center;
+    line-height: 1.7;
+  }
+  
+  .subheading {
+    font-size: 2.5rem;
+    color: #2980b9;
+    margin-top: 30px;
+  }
+  
+  .paragraph {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .areas-list, .features-list, .skills-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .areas-list li, .features-list li, .skills-list li {
+    font-size: 1.2rem;
+    color: #16a085;
+    margin-bottom: 12px;
+  }
+  
+  .contact-info {
+    margin-top: 40px;
+  }
+  
+  .contact-heading {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .contact-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .contact-list li {
+    font-size: 1.3rem;
+    color: #7f8c8d;
+  }
+  
+  .contact-list a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  
+  .contact-list a:hover {
+    text-decoration: underline;
+  }
+  
