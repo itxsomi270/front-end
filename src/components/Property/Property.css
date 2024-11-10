@@ -1,56 +1,151 @@
+/* Global Styles */
+body {
+  background-color: #121212; /* Dark background */
+  color: #fff; /* Light text color */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Property Container */
 .property-container {
-    display: flex;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: stretch; /* Stretch to full height */
+  margin: 40px 10px;
+  padding: 20px;
+  background-color: #0e0e0e; /* Darker black background */
+  border-radius: 20px; /* Modern rounded corners */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for a floating effect */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.property-container:hover {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4); /* Hover effect */
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Property Image */
+.property-image {
+  max-width: 600px; /* Set max-width to make image larger */
+  flex-shrink: 0; /* Prevent image from shrinking */
+  margin-right: 40px; /* Space between image and text */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure rounded corners clip the image */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow around image */
+  height: 100%; /* Make the image take full height */
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container area without distortion */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+/* Property Details */
+.property-details {
+  color: #b0d0d0; /* Greenish blue text color */
+  max-width: 600px; /* Set max-width for text content */
+  font-size: 1.2em; /* Increase font size */
+}
+
+.property-details h2 {
+  font-size: 3em; /* Increase heading size */
+  color: #2fa5b8; /* Greenish blue accent color */
+  margin-bottom: 20px; /* Gap between heading and values */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.property-description {
+  font-size: 1.3em; /* Increase description size */
+  color: #9bc9c9; /* Lighter greenish blue for description */
+  margin: 20px 0;
+}
+
+/* Boxed Key-Value Pairs */
+.property-details .key-value {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #1a1a1a; /* Dark background for each box */
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Light shadow around boxes */
+}
+
+.property-details .key-value .key {
+  font-weight: bold;
+  color: #2fa5b8; /* Greenish blue for the keys */
+}
+
+.property-details .key-value .value {
+  color: #bbb; /* Lighter color for the values */
+}
+
+/* Buttons */
+button {
+  padding: 12px 24px;
+  background-color: #2fa5b8; /* Greenish blue button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em; /* Increase button text size */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #1d8b96; /* Darker greenish blue on hover */
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .property-container {
+    flex-direction: column;
+    padding: 15px;
   }
-  
-  .property-image img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    object-fit: cover;
+
+  .property-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+    height: auto; /* Maintain aspect ratio on smaller screens */
   }
-  
+
   .property-details {
-    padding: 20px;
-    color: #333;
+    padding-left: 0;
+    max-width: 100%;
   }
-  
+
   .property-details h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #007bff;
+    font-size: 2.5em;
   }
-  
+
   .property-description {
-    font-size: 1.1em;
-    color: #666;
-    margin: 15px 0;
+    font-size: 1.2em;
   }
-  
-  .property-details p, .property-utilities li, .property-amenities li {
-    font-size: 1em;
-    line-height: 1.5;
+
+  .property-details .key-value {
+    flex-direction: column; /* Stack key-value pairs vertically */
+    text-align: left;
   }
-  
-  .property-utilities, .property-amenities {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-  }
-  
-  .property-utilities li, .property-amenities li {
-    margin: 5px 0;
-  }
-  
-  .property-utilities h3, .property-amenities h3 {
-    color: #333;
-    font-weight: bold;
-    margin-top: 15px;
-  }
-  
+}
