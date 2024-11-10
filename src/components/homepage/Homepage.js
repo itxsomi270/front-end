@@ -20,17 +20,17 @@ const Home = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await fetch('http://localhost:4000/get-properties');
+        const response = await fetch('http://localhost:4000/get-properties');  // GET request
         if (response.ok) {
-          const data = await response.json();
-          setProperties(data);
+          const data = await response.json();  // Parse JSON data
+          setProperties(data);  // Store it in state
         } else {
-          console.error('Failed to fetch properties');
+          console.error('Failed to fetch properties', response.status);
         }
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
-    };
+    };    
     fetchProperties();
   }, []);
 
